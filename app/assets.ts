@@ -10,7 +10,7 @@ export const assets = createAssetServer({
   basePath: '/assets',
   rootDir,
 
-  allowFiles: ['app/client/**', 'app/game/tic-tac-toe.ts'],
+  allowFiles: ['app/client/**'],
   allowPackages: ['remix'],
   denyFiles: ['app/**/*.test.*'],
   sourceMaps: isDevelopment ? 'external' : undefined,

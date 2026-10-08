@@ -26,7 +26,6 @@ Refer to ./.agents/skills/remix/SKILL.md for the Remix mental model and how to f
 - `app/controller.tsx` owns the route actions. `app/controller.test.ts` is the router smoke test
 - `app/pages/` renders the home page and the about page
 - `app/ui/` holds the document shell and shared page styles
-- `app/game/` holds the tic-tac-toe rules and their test
-- `app/client/` contains the browser runtime entry and the interactive board
-- `app/assets.ts` serves only `app/client/**` and `app/game/tic-tac-toe.ts` to the browser
+- `app/client/` contains the browser runtime entry, the interactive board, and `game/` for the tic-tac-toe rules and their test
+- `app/assets.ts` serves `app/client/**` to the browser. `denyFiles` excludes tests
 - Root `public/` contains static files served unchanged from the app root
