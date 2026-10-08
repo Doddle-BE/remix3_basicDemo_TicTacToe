@@ -1,4 +1,4 @@
-import { Board } from '../client/board.tsx'
+import { Board } from '../client/game/board.tsx'
 import { routes } from '../routes.ts'
 import { linkStyle, Page, titleStyle } from '../ui/page.tsx'
 

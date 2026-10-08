@@ -1,6 +1,6 @@
 import { clientEntry, css, on, type Handle } from 'remix/component'
 
-import { place, start, view, type Cell } from './game/tic-tac-toe.ts'
+import { place, start, view, type Cell } from './tic-tac-toe.ts'
 
 export const Board = clientEntry(import.meta.url, function Board(handle: Handle) {
   let game = start()
