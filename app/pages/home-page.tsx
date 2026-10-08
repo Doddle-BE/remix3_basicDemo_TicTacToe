@@ -32,7 +32,7 @@ export function HomePage(handle: Handle<HomePageProps>) {
               required
               maxLength={20}
               defaultValue={values?.playerX}
-              aria-invalid={error ? true : undefined}
+              aria-invalid={error ? 'true' : undefined}
               aria-describedby={error ? 'names-error' : undefined}
             />
           </label>
@@ -43,7 +43,7 @@ export function HomePage(handle: Handle<HomePageProps>) {
               required
               maxLength={20}
               defaultValue={values?.playerO}
-              aria-invalid={error ? true : undefined}
+              aria-invalid={error ? 'true' : undefined}
               aria-describedby={error ? 'names-error' : undefined}
             />
           </label>

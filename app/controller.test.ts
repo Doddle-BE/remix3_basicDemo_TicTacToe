@@ -35,6 +35,8 @@ describe('root controller', () => {
     assert.match(response.headers.get('Content-Type') ?? '', /text\/html/)
     assert.match(body, /<html[\s>]/)
     assert.match(body, /X's turn/)
+    assert.doesNotMatch(body, /name="playerX"[^>]*value=/)
+    assert.doesNotMatch(body, /name="playerO"[^>]*value=/)
     assert.match(body, new RegExp(`href="${routes.about.href()}"`))
   })
 
@@ -73,6 +75,7 @@ describe('root controller', () => {
     assert.equal(tooLong.headers.get('Set-Cookie'), null)
     assert.match(blankBody, /Names must be 1-20 characters/)
     assert.match(blankBody, /role="alert"/)
+    assert.match(blankBody, /aria-invalid="true"/)
     assert.match(blankBody, /name="playerX"[^>]*value="   "/)
     assert.match(blankBody, /name="playerO"[^>]*value="Too Blank"/)
     assert.match(blankBody, /Ada's turn/)
@@ -93,6 +96,7 @@ describe('root controller', () => {
 
     assert.equal(response.status, 200)
     assert.match(body, /Ada's turn/)
-    assert.match(body, /Grace/)
+    assert.match(body, /name="playerX"[^>]*value="Ada"/)
+    assert.match(body, /name="playerO"[^>]*value="Grace"/)
   })
 })
