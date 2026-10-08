@@ -19,14 +19,14 @@ Use `npm run hmr` for live server and browser updates; `npm run dev` only watche
 
 Refer to ./.agents/skills/remix/SKILL.md for the Remix mental model and how to find guides and API READMEs through `node_modules/remix/INDEX.md`.
 
-## Starter Layout
+## Layout
 
-- `app/routes.ts` defines the shared route contract used by server and browser modules for type-safe hrefs
-- `app/router.ts` wires routes to controllers and installs the standard Remix component renderer used by actions
-- Put top-level route actions in `app/actions/controller.tsx`; add `app/actions/<route-key>/controller.tsx` for nested route maps. `app/actions/controller.test.ts` is the root controller's router smoke test
-- `app/actions/home-page.tsx` and `app/actions/document.tsx` render the route-owned starter UI
-- `app/actions/public/` contains the browser runtime entry and interactive prompt button
-- `app/assets.ts` owns the server-side asset pipeline used by the asset route and render middleware
+- `app/routes.ts` defines the shared route contract used for type-safe hrefs
+- `app/router.ts` wires routes to the controller and installs the standard Remix component renderer used by actions
+- `app/controller.tsx` owns the route actions. `app/controller.test.ts` is the router smoke test
+- `app/pages/` renders the home page and the about page
+- `app/ui/` holds the document shell and shared page styles
+- `app/game/` holds the tic-tac-toe rules and their test
+- `app/client/` contains the browser runtime entry and the interactive board
+- `app/assets.ts` serves only `app/client/**` and `app/game/tic-tac-toe.ts` to the browser
 - Root `public/` contains static files served unchanged from the app root
-
-This starter intentionally begins small; add directories like `app/data/`, `app/middleware/`, `app/ui/`, and `test/` only when you need them.

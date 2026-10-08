@@ -10,7 +10,7 @@ export const assets = createAssetServer({
   basePath: '/assets',
   rootDir,
 
-  allowFiles: ['app/routes.ts', 'app/**/public/**'],
+  allowFiles: ['app/client/**', 'app/game/tic-tac-toe.ts'],
   allowPackages: ['remix'],
   denyFiles: ['app/**/*.test.*'],
   sourceMaps: isDevelopment ? 'external' : undefined,
@@ -25,6 +25,6 @@ export const assets = createAssetServer({
   scripts: { loaders: isHmr ? [componentHmr()] : undefined },
 })
 
-const entry = 'app/actions/public/entry.ts'
+const entry = 'app/client/entry.ts'
 
 export const scriptEntry = await assets.getScriptEntry(entry)

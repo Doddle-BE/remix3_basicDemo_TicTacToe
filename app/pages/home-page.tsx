@@ -1,6 +1,6 @@
+import { Board } from '../client/board.tsx'
 import { routes } from '../routes.ts'
-import { Board } from './public/board.tsx'
-import { linkStyle, Page, titleStyle } from './page.tsx'
+import { linkStyle, Page, titleStyle } from '../ui/page.tsx'
 
 export function HomePage() {
   return () => (

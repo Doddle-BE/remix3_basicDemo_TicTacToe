@@ -1,7 +1,7 @@
 import { css } from 'remix/component'
 
 import { routes } from '../routes.ts'
-import { linkStyle, Page, titleStyle } from './page.tsx'
+import { linkStyle, Page, titleStyle } from '../ui/page.tsx'
 
 export function AboutPage() {
   return () => (
