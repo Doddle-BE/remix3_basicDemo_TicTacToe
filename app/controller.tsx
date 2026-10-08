@@ -18,7 +18,12 @@ export default createController(routes, {
       return context.render(<AboutPage />)
     },
     async start(context) {
-      return startHandler(context.request)
+      let result = await startHandler(context.request)
+      if (result instanceof Response) {
+        return result
+      }
+
+      return context.render(homeHandler(context.request, result), { status: 400 })
     },
   },
 })
