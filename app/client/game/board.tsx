@@ -2,7 +2,12 @@ import { clientEntry, css, on, type Handle } from 'remix/component'
 
 import { place, start, view, type Cell } from './tic-tac-toe.ts'
 
-export const Board = clientEntry(import.meta.url, function Board(handle: Handle) {
+interface BoardProps {
+  playerX: string
+  playerO: string
+}
+
+export const Board = clientEntry(import.meta.url, function Board(handle: Handle<BoardProps>) {
   let game = start()
 
   function handlePlace(index: Cell): void {
@@ -20,12 +25,14 @@ export const Board = clientEntry(import.meta.url, function Board(handle: Handle)
   }
 
   return () => {
+    const { playerX, playerO } = handle.props
     const picture = view(game)
+    const announcement = picture.announcement.replace(/^X/, playerX).replace(/^O/, playerO)
 
     return (
       <section mix={sectionStyle}>
         <p role="status" aria-live="polite" mix={statusStyle}>
-          {picture.announcement}
+          {announcement}
         </p>
         <div mix={gridStyle}>
           {picture.cells.map((cell) => (
