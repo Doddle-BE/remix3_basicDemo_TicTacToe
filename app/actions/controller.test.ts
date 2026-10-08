@@ -13,5 +13,16 @@ describe('root controller', () => {
     assert.match(response.headers.get('Content-Type') ?? '', /text\/html/)
     assert.match(body, /<html[\s>]/)
     assert.match(body, /X's turn/)
+    assert.match(body, new RegExp(`href="${routes.about.href()}"`))
+  })
+
+  it('GET /about returns the about page', async () => {
+    let response = await router.fetch(new URL(routes.about.href(), 'http://localhost'))
+    let body = await response.text()
+
+    assert.equal(response.status, 200)
+    assert.match(response.headers.get('Content-Type') ?? '', /text\/html/)
+    assert.match(body, /<h1[^>]*>About<\/h1>/)
+    assert.match(body, new RegExp(`href="${routes.home.href()}"`))
   })
 })
